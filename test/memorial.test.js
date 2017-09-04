@@ -5,8 +5,8 @@ const co = require('co')
 const expect = require('chai').expect
 const sinon = require('sinon')
 
-PATH = './../scripts/memorial.js'
-Memorial = require(PATH).Memorial
+const PATH = './../scripts/memorial.js'
+const Memorial = require(PATH).Memorial
 
 describe('notify passed days', function() {
 
@@ -29,9 +29,10 @@ describe('notify passed days', function() {
     })
 
     return it('should notify in channel', function() {
+      // TODO dynamically change hubot reply
       return expect(room.messages).to.eql([
         ['alice', '記念日'],
-        ['hubot', '100日経過'],
+        ['hubot', '🎉 付き合い始めてから35日目'],
       ])
     })
   })
