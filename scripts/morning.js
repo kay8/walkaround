@@ -3,7 +3,7 @@
  * register cron jobs to schedule morning messages
  */
 
- 'use strict';
+'use strict';
 
 const cronJob = require('cron').CronJob
 const moment = require('moment-timezone')
