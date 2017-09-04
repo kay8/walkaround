@@ -9,12 +9,6 @@ const cronJob = require('cron').CronJob
 const moment = require('moment-timezone')
 const memorial = require('./../scripts/memorial.js').Memorial
 
-const options = {
-  channel: 'general',
-  timeZone: 'America/Vancouver',
-  cronTime: '0 0 7 * * *',
-}
-
 class Morning {
   constructor(options) {
     this.channel = 'general'
