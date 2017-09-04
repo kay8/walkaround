@@ -24,9 +24,15 @@
   "engines": {
     "node": "6.11.x"
   },
+  "scripts": {
+    "logs": "heroku logs -a walkaround",
+    "start": "source bin/hubot",
+    "test": "./node_modules/mocha/bin/mocha"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "co": "^4.6.0",
+    "coffee-script": "^1.12.7",
     "hubot-test-helper": "^1.7.0",
     "mocha": "^3.5.0",
     "sinon": "^3.2.1"
