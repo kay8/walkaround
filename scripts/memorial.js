@@ -53,9 +53,9 @@ class Memorial {
   }
 
   // Instant interface
-  static get_morning_message(callback){
-    const memorial = new Memorial();
-    return memorial.get_morning_message(callback);
+  static get_morning_message(callback) {
+    const memorial = new Memorial()
+    return memorial.get_morning_message(callback)
   }
 }
 
