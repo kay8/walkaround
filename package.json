@@ -27,7 +27,7 @@
   },
   "scripts": {
     "logs": "heroku logs -a walkaround",
-    "start": "source bin/hubot",
+    "start": "source bin/env; bin/hubot",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {

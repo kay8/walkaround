@@ -10,7 +10,6 @@ const request = require('request')
 class A3rt {
 
   constructor(options) {
-    this.API_KEY = process.env.HUBOT_RECRUIT_A3RT_API_KEY
     this.endPoint = 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk'
   }
 
@@ -22,15 +21,16 @@ class A3rt {
     robot.respond(/(.*)/i, function(res) {
       const text = res.match[1]
       console.log(`Input text=${text}`)
+
+      const options = {
+        url: 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk',
+        form: {apikey: process.env.HUBOT_RECRUIT_A3RT_API_KEY, query: text}
+      }
    
-      return request.post(
-        this.endPoint, {
-          form: {
-            apikey: this.API_KEY, query: text
-          }
-        },
-        function(error, response, body) {
+      return request.post({options}, function(error, response, body) {
           let resObj
+          console.log(options)
+          console.log(error)
 
           if (!error && (response.status === 200)) {
             console.log("Request success.")
@@ -40,8 +40,9 @@ class A3rt {
             return res.reply(resObj.results[0].reply)
           } else {
             console.log("Request error.")
-            resObj = JSON.parse(body)
-            console.log(resObj)
+            //resObj = JSON.parse(body)
+            //console.log(resObj)
+            console.log(body)
 
             return res.reply('Request error.')
           }
