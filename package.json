@@ -19,14 +19,21 @@
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.1",
     "hubot-slack": "^4.3.4",
-    "moment-timezone": "^0.5.13"
+    "moment-timezone": "^0.5.13",
+    "request": "^2.81.0"
   },
   "engines": {
     "node": "6.11.x"
   },
+  "scripts": {
+    "logs": "heroku logs -a walkaround",
+    "start": "source bin/env; bin/hubot",
+    "test": "./node_modules/mocha/bin/mocha"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "co": "^4.6.0",
+    "coffee-script": "^1.12.7",
     "hubot-test-helper": "^1.7.0",
     "mocha": "^3.5.0",
     "sinon": "^3.2.1"
