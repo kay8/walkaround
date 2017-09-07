@@ -7,47 +7,37 @@
 
 const request = require('request')
 
+const API_KEY = process.env.HUBOT_RECRUIT_A3RT_API_KEY
+const endPoint = 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk'
+
+
 class A3rt {
 
-  constructor(options) {
-    this.endPoint = 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk'
-  }
-
   start(robot) {
-    return this.startConversation(robot)
-  }
 
-  startConversation(robot) {
-    robot.respond(/(.*)/i, function(res) {
-      const text = res.match[1]
-      console.log(`Input text=${text}`)
+    return robot.respond(/(.*)/i, function(res) {
+      const text = res.match[1]
+      console.log(`Input text=${text}`)
 
-      const options = {
-        url: 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk',
-        form: {apikey: process.env.HUBOT_RECRUIT_A3RT_API_KEY, query: text}
-      }
-   
-      return request.post({options}, function(error, response, body) {
+      return request.post(endPoint,
+        { form: { apikey: API_KEY, query: text} },
+        function(error, response, body){
           let resObj
-          console.log(options)
-          console.log(error)
-
-          if (!error && (response.status === 200)) {
+          if (!error && (response.statusCode === 200)) {
             console.log("Request success.")
             resObj = JSON.parse(body)
             console.log(resObj)
 
             return res.reply(resObj.results[0].reply)
+
           } else {
             console.log("Request error.")
-            //resObj = JSON.parse(body)
-            //console.log(resObj)
-            console.log(body)
+            resObj = JSON.parse(body)
+            console.log(resObj)
 
             return res.reply('Request error.')
           }
-
-        })
+      })
     })
   }
 
