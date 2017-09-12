@@ -4,6 +4,7 @@
 // Dependencies:
 //   "htmlparser": "1.7.7"
 //   "soupselect": "0.2.0"
+//   "request"
 //
 // Configuration:
 //   HUBOT_9GAG_NO_GIFS (optional, skips GIFs if defined; default is undefined)
@@ -16,6 +17,7 @@
 //
 // Contributors:
 //   dedeibel (gif support)
+//   Kay (convert to ES6 and simplify functionality)
 
 const Select      = require( "soupselect" ).select
 const HTMLParser  = require("htmlparser")
@@ -45,7 +47,7 @@ class Ninegag {
           img_src = `https:${img_src}`
         }
 
-        const img_title = this.escape_html_characters( this.get_meme_title( body, [".badge-item-title"] ) )
+        const img_title = this.get_meme_title(body, [".badge-item-title"])
 
         return res.send(img_title, img_src)
 
@@ -75,20 +77,6 @@ class Ninegag {
 
   get_meme_title(body, selectors) {
     return this.select_element(body, selectors).children[0].raw
-  }
-
-  escape_html_characters(text) {
-    const replacements = [
-      [/&/g, '&amp;'],
-      [/</g, '&lt;'],
-      [/"/g, '&quot;'],
-      [/'/g, '&#039;']
-    ]
-
-    for (let r of Array.from(replacements)) {
-      text = text.replace(r[0], r[1])
-    }
-    return text;
   }
 
 }
