@@ -19,9 +19,13 @@ class A3rt {
       const text = res.match[1]
       console.log(`Input text=${text}`)
 
+      if (text === '9gag') {
+        return
+      }
+
       return request.post(endPoint,
         { form: { apikey: API_KEY, query: text} },
-        function(error, response, body){
+        function(error, response, body) {
           let resObj
           if (!error && (response.statusCode === 200)) {
             console.log("Request success.")
