@@ -5,6 +5,10 @@
 
 'use strict';
 
+const request = require('request')
+
+const url = ''
+
 class Recipes {
 
   constructor(options) {
@@ -12,8 +16,19 @@ class Recipes {
   }
 
   start(robot) {
-    return robot.respond(/(.*)/i, function(res) {
+    return robot.respond(/recipes/i, res => this.get_recipes(res))
+  }
 
+  get_recipes(res) {
+    return request.get(url, (error, response, body) => {
+
+      if (!error && (response.statusCode === 200)) {
+        console.log("Request success.")
+
+      } else {
+        console.log("Request error.")
+        return res.send('Request error.')
+      }
     })
   }
 
