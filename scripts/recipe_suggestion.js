@@ -6,8 +6,9 @@
 'use strict';
 
 const request = require('request')
+const fs = require('fs')
 
-const url = ''
+const url = process.env.HUBOT_GAS_API_URL
 
 class Recipes {
 
@@ -24,6 +25,8 @@ class Recipes {
 
       if (!error && (response.statusCode === 200)) {
         console.log("Request success.")
+        //console.log(JSON.parse(body))
+        console.log(body)
 
       } else {
         console.log("Request error.")
