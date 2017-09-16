@@ -19,7 +19,7 @@ class A3rt {
       const text = res.match[1]
       console.log(`Input text=${text}`)
 
-      if (text === '9gag') {
+      if (text === '9gag' || text === 'recipes') {
         return
       }
 
