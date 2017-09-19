@@ -10,18 +10,21 @@ const request = require('request')
 const API_KEY = process.env.HUBOT_RECRUIT_A3RT_API_KEY
 const endPoint = 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk'
 
+const registered_keywords = ['9gag', 'recipes']
 
 class A3rt {
 
   start(robot) {
 
-    return robot.respond(/(.*)/i, function(res) {
+    //return robot.respond(/(.*)/i, function(res) {
+    return robot.respond(/(.*)/i, res => {
       const text = res.match[1]
       console.log(`Input text=${text}`)
 
-      if (text === '9gag' || text === 'recipes') {
+      if (this.match_keywords(text)) {
         return
       }
+
 
       return request.post(endPoint,
         { form: { apikey: API_KEY, query: text} },
@@ -42,6 +45,12 @@ class A3rt {
             return res.reply('Request error.')
           }
       })
+    })
+  }
+
+  match_keywords(text) {
+    registered_keywords.some(k => {
+      return text.includes(k)
     })
   }
 
