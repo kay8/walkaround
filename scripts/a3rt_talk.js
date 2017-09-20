@@ -49,9 +49,11 @@ class A3rt {
   }
 
   match_keywords(text) {
-    registered_keywords.some(k => {
-      return text.includes(k)
-    })
+    function includeKeywords(element, index, array) {
+      return text.indexOf(element) > -1
+    }
+
+    return registered_keywords.some(includeKeywords)
   }
 
 }
