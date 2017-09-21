@@ -35,7 +35,7 @@ class Ninegag {
     return request.get(url, (error, response, body) => {
 
       if (!error && (response.statusCode === 200)) {
-        console.log("Request success.")
+        console.log("9gag Request success.")
 
         const selectors = ["a img.badge-item-img"]
         if ((process.env.HUBOT_9GAG_NO_GIFS == null)) {
@@ -52,8 +52,8 @@ class Ninegag {
         return res.send(img_title, img_src)
 
       } else {
-        console.log("Request error.")
-        return res.send('Request error.')
+        console.log("9gag Request error.")
+        return res.send('9gag Request error.')
       }
     })
   }
