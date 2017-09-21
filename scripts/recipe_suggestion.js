@@ -24,13 +24,13 @@ class Recipes {
     return request.get(url, (error, response, body) => {
 
       if (!error && (response.statusCode === 200)) {
-        console.log("Request success.")
+        console.log("Recipes Request success.")
         //console.log(JSON.parse(body))
         console.log(body)
 
       } else {
-        console.log("Request error.")
-        return res.send('Request error.')
+        console.log("Recipes Request error.")
+        return res.send('Recipes Request error.')
       }
     })
   }

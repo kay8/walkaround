@@ -16,7 +16,6 @@ class A3rt {
 
   start(robot) {
 
-    //return robot.respond(/(.*)/i, function(res) {
     return robot.respond(/(.*)/i, res => {
       const text = res.match[1]
       console.log(`Input text=${text}`)
@@ -31,18 +30,18 @@ class A3rt {
         function(error, response, body) {
           let resObj
           if (!error && (response.statusCode === 200)) {
-            console.log("Request success.")
+            console.log("A3rt Request success.")
             resObj = JSON.parse(body)
             console.log(resObj)
 
             return res.reply(resObj.results[0].reply)
 
           } else {
-            console.log("Request error.")
+            console.log("A3rt Request error.")
             resObj = JSON.parse(body)
             console.log(resObj)
 
-            return res.reply('Request error.')
+            return res.reply('A3rt Request error.')
           }
       })
     })
