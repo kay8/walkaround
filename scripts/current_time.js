@@ -27,7 +27,7 @@ class CurrentTime {
 
   get_current_time(res) {
     const user_id = res.message.user.id
-    let formatted_time
+    let formatted_time = ''
     if (user_id === users.jp) {
       formatted_time = moment().tz(tz.jp).format('ha z')
       return res.reply(`日本は${formatted_time}`)
@@ -35,6 +35,8 @@ class CurrentTime {
       formatted_time = moment().tz(tz.van).format('ha z')
       return res.reply(`バンクーバーは${formatted_time}`)
     }
+
+    return res.reply(user_id)
   }
 
 }
