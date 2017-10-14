@@ -26,17 +26,17 @@ class CurrentTime {
   }
 
   get_current_time(res) {
-    const user_id = res.message.user.id
+    const user_name = res.message.user.name
     let formatted_time = ''
-    if (user_id === users.jp) {
+    if (user_name === users.jp) {
       formatted_time = moment().tz(tz.jp).format('ha z')
       return res.reply(`日本は${formatted_time}`)
-    } else if (user_id === users.van) {
+    } else if (user_name === users.van) {
       formatted_time = moment().tz(tz.van).format('ha z')
       return res.reply(`バンクーバーは${formatted_time}`)
     }
 
-    return res.reply(user_id)
+    return res.reply(user_name)
   }
 
 }
