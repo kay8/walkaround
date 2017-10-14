@@ -29,14 +29,12 @@ class CurrentTime {
     const user_name = res.message.user.name
     let formatted_time = ''
     if (user_name === users.jp) {
-      formatted_time = moment().tz(tz.jp).format('ha z')
-      return res.reply(`日本は${formatted_time}`)
+      formatted_time = moment().tz(tz.van).format(tz_format)
+      return res.reply(`バンクーバーは${formatted_time}だよ`)
     } else if (user_name === users.van) {
-      formatted_time = moment().tz(tz.van).format('ha z')
-      return res.reply(`バンクーバーは${formatted_time}`)
+      formatted_time = moment().tz(tz.jp).format(tz_format)
+      return res.reply(`日本は${formatted_time}だよ`)
     }
-
-    return res.reply(user_name)
   }
 
 }
