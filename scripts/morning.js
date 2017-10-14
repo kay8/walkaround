@@ -1,7 +1,7 @@
-/*!
- * Description:
- * register cron jobs to schedule morning messages
- */
+//
+// Description:
+// register cron jobs to schedule morning messages
+//
 
 'use strict';
 

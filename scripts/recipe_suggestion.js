@@ -1,7 +1,7 @@
-/*!
- * Description:
- * Suggest Recipes based on keywords
- */
+//
+// Description:
+// Suggest Recipes based on keywords
+//
 
 'use strict';
 
