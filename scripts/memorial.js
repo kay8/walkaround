@@ -1,7 +1,7 @@
-/*!
- * Description:
- * Memorial Information
- */
+//
+// Description:
+// Memorial Information
+//
 
 'use strict';
 

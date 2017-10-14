@@ -1,7 +1,7 @@
-/*!
- * Description:
- * A3RT API using script
- */
+//
+// Description:
+// A3RT API using script
+//
 
 'use strict';
 
