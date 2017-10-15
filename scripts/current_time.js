@@ -30,10 +30,10 @@ class CurrentTime {
     let formatted_time = ''
     if (user_name === users.jp) {
       formatted_time = moment().tz(tz.van).format(tz_format)
-      return res.reply(`バンクーバーは${formatted_time}だよ`)
+      return res.reply(`バンクーバーは ${formatted_time} だよ`)
     } else if (user_name === users.van) {
       formatted_time = moment().tz(tz.jp).format(tz_format)
-      return res.reply(`日本は${formatted_time}だよ`)
+      return res.reply(`日本は ${formatted_time} だよ`)
     }
   }
 
