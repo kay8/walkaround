@@ -10,7 +10,7 @@ const request = require('request')
 const API_KEY = process.env.HUBOT_RECRUIT_A3RT_API_KEY
 const endPoint = 'https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk'
 
-const registered_keywords = ['9gag', 'recipes']
+const registered_keywords = ['9gag', 'レシピ']
 
 class A3rt {
 
