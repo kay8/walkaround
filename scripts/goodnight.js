@@ -29,7 +29,18 @@ class GoodNight {
   }
 
   notify(robot) {
-    const message = 'ﾈﾑﾈﾑ(ﾉω<).｡oOO'
+    const messages = [
+      'ﾈﾑﾈﾑ(ﾉω<).｡oOO',
+      'ﾈﾑｲ(´･ωゞ)',
+      'ｩﾄｩﾄ(´-ω-)´_ _)´-ω-)´_ _)zZZ',
+      '(ρω・).。ｏ○',
+      'ｺﾞｼｺﾞｼ(´pω･｡`)ﾈﾐﾈﾐ',
+      '(o´･ω･o)σ【☆ﾟ+.ｵﾔｽﾐ.+ﾟ☆】',
+      '(。-ω-)zzz. . . (。ﾟωﾟ) ﾊｯ!',
+      '（￣、￣＠）ｚｚｚ・・ねるよー'
+    ]
+    const rand_index = Math.floor(Math.random() * messages.length)
+    const message = messages[rand_index]
     return robot.messageRoom(this.channel, message)
   }
 
