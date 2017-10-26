@@ -12,7 +12,7 @@ class GoodNight {
   constructor(options) {
     this.channel = 'general'
     this.timezone = 'America/Vancouver'
-    this.cronTime = '0 59 0 * * *'
+    this.cronTime = '0 55 0 * * *'
   }
 
   start(robot) {
