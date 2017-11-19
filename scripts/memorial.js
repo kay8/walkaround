@@ -21,7 +21,7 @@ class Memorial {
 
   start(robot) {
     const days = this.today.diff(this.startingDayVan, 'days')
-    return robot.hear(/記念日/i, res => res.reply(`🎉 付き合い始めてから${days}日目`))
+    return robot.hear(/^記念日$/i, res => res.reply(`🎉 付き合い始めてから${days}日目`))
   }
 
   getNextMemorial() {
