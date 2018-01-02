@@ -13,7 +13,7 @@ class Morning {
   constructor(options) {
     this.channel = 'general'
     this.timezone = 'America/Vancouver'
-    this.cronTime = '0 0 7 * * *'
+    this.cronTime = '0 30 7 * * *'
   }
 
   start(robot) {
