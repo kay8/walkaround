@@ -28,7 +28,7 @@
     "node": "6.11.x"
   },
   "scripts": {
-    "logs": "heroku logs -a walkaround",
+    "logs": "heroku logs -a walkaround730",
     "start": "source bin/env; bin/hubot",
     "test": "./node_modules/mocha/bin/mocha"
   },

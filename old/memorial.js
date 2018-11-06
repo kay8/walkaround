@@ -20,8 +20,12 @@ class Memorial {
   }
 
   start(robot) {
-    const days = this.today.diff(this.startingDayVan, 'days')
+    const days = this.getPassedDays()
     return robot.hear(/^記念日$/i, res => res.reply(`🎉 付き合い始めてから${days}日目`))
+  }
+
+  getPassedDays() {
+    return this.today.diff(this.startingDayVan, 'days')
   }
 
   getNextMemorial() {
@@ -56,6 +60,15 @@ class Memorial {
   static get_morning_message(callback) {
     const memorial = new Memorial()
     return memorial.get_morning_message(callback)
+  }
+
+  get_passed_days() {
+    return this.getPassedDays()
+  }
+
+  static get_passed_days() {
+    const memorial = new Memorial()
+    return memorial.get_passed_days()
   }
 }
 
